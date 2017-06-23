@@ -23,8 +23,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import com.activiti.config.activiti.CustomGroupEntityManagerFactory;
-import com.activiti.config.activiti.CustomUserEntityManagerFactory;
+import com.activiti.service.activiti.CustomGroupEntityManagerFactory;
+import com.activiti.service.activiti.CustomUserEntityManagerFactory;
 
 /**
  * activiti工作流配置

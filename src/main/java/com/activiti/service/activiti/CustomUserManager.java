@@ -1,4 +1,4 @@
-package com.activiti.config.activiti;
+package com.activiti.service.activiti;
 
 public class CustomUserManager {
 

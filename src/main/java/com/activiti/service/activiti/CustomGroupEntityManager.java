@@ -1,4 +1,4 @@
-package com.activiti.config.activiti;
+package com.activiti.service.activiti;
 
 import org.activiti.engine.impl.persistence.entity.GroupEntityManager;
 
