@@ -1,4 +1,4 @@
-package com.activiti.config;
+package com.activiti.config.activiti;
 
 import org.activiti.engine.impl.persistence.entity.UserEntityManager;
 
