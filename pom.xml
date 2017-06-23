@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.activiti</groupId>
+	<artifactId>activiti</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+  
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.3.RELEASE</version>
+	</parent>
+  
+  	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<activiti.version>5.17.0</activiti.version>
+  	</properties>
+  	
+  	<dependencies>
+  		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+  		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.belerweb/pinyin4j -->
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+		<!--mybatis -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.2.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--pagehelper -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.29</version>
+		</dependency>
+		<!-- excel操作 -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
+		</dependency>
+		
+		<!-- activiti start-->
+		<!-- 添加boot的activiti模块 -->
+		<dependency>
+		    <groupId>org.activiti</groupId>
+		    <artifactId>spring-boot-starter-basic</artifactId>
+		    <version>${activiti.version}</version>
+		</dependency>
+		
+		<!-- 增强你的activiti，发布restful管理activiti resource -->
+		<dependency>
+		    <groupId>org.activiti</groupId>
+		    <artifactId>spring-boot-starter-rest-api</artifactId>
+		    <version>${activiti.version}</version>
+		</dependency>
+		
+		<!-- 增强你的activiti，发布restful管理boot应用 -->
+		<dependency>
+		    <groupId>org.activiti</groupId>
+		    <artifactId>spring-boot-starter-actuator</artifactId>
+		    <version>${activiti.version}</version>
+		</dependency>
+		
+		<!-- activiti-modeler模块提供模型先关的操作：创建、保存、转换json与xml格式等 -->
+		<dependency>
+		    <groupId>org.activiti</groupId>
+		    <artifactId>activiti-modeler</artifactId>
+		    <version>5.19.0</version>
+		</dependency>
+		
+		<!-- activiti-diagram-rest模块用来处理流程图有关的功能：流程图布局（layout）、节点高亮等 -->
+		<dependency>
+		    <groupId>org.activiti</groupId>
+		    <artifactId>activiti-diagram-rest</artifactId>
+		    <version>5.19.0</version>
+		</dependency>
+		<!-- activiti end-->
+		
+  	</dependencies>
+  	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
