@@ -19,6 +19,7 @@ import org.activiti.engine.impl.interceptor.SessionFactory;
 import org.activiti.spring.ProcessEngineFactoryBean;
 import org.activiti.spring.SpringProcessEngineConfiguration;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -34,6 +35,10 @@ import com.activiti.service.activiti.CustomUserEntityManagerFactory;
  */
 @Configuration
 public class ActivitiConfig {
+	@Autowired
+	private CustomUserEntityManagerFactory customUserEntityManagerFactory;
+	@Autowired
+	private CustomGroupEntityManagerFactory customGroupEntityManagerFactory;
 	
 	/**
 	 * 初始化 默认用户
@@ -80,12 +85,10 @@ public class ActivitiConfig {
          * 3.不需要编写Java代码，只需要创建同名视图即可
          */
         processEngineConfiguration.setDbIdentityUsed(false);
-        List<SessionFactory> mySess = new ArrayList<>();
-        mySess.add(new CustomUserEntityManagerFactory());
-        mySess.add(new CustomGroupEntityManagerFactory());
-        processEngineConfiguration.setCustomSessionFactories(mySess);
-        
-        
+        List<SessionFactory> customSessionFactorys = new ArrayList<>();
+        customSessionFactorys.add(customUserEntityManagerFactory);
+        customSessionFactorys.add(customGroupEntityManagerFactory);
+        processEngineConfiguration.setCustomSessionFactories(customSessionFactorys);
         processEngineConfiguration.setTransactionManager(transactionManager);
 
         return processEngineConfiguration;
