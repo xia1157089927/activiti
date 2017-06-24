@@ -123,7 +123,7 @@ public class ActiviriDemoSevice {
 				// 添加membership
 				for (Long roleId : roleIds) {
 					//Role role = roleManager.getEntity(roleId);
-					identityService.createMembership(userId, "roleName");
+					identityService.createMembership(userId, "roleName" + roleId);
 				}
 
 			} else {
@@ -137,7 +137,7 @@ public class ActiviriDemoSevice {
 				// 添加membership
 				for (Long roleId : roleIds) {
 					//Role role = roleManager.getEntity(roleId);
-					identityService.createMembership(userId, "roleName");
+					identityService.createMembership(userId, "roleName" + roleId);
 				}
 			}
 		}

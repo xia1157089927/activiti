@@ -3,8 +3,6 @@ package com.activiti.service.activiti;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomUserManager {
-
-	
+public class CustomGroupManager {
 
 }

@@ -72,7 +72,13 @@ public class ActivitiConfig {
         processEngineConfiguration.setDataSource(dataSource);
         processEngineConfiguration.setDatabaseSchemaUpdate("true");
         processEngineConfiguration.setDatabaseType("mysql");
-
+        
+        /**
+         * 整合自有的用户管理
+         * 1.将数据整理同步到activiti 自带的用户表结构中
+         * 2.自定义SessionFactory，非侵入式替换接口实现，对于公司内部有统一身份访问接口的推荐使用
+         * 3.不需要编写Java代码，只需要创建同名视图即可
+         */
         processEngineConfiguration.setDbIdentityUsed(false);
         List<SessionFactory> mySess = new ArrayList<>();
         mySess.add(new CustomUserEntityManagerFactory());
