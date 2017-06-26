@@ -81,16 +81,16 @@ create table if not exists `t_role`(
 	`describe` varchar(256) comment '角色描述',
 	primary key(`role_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 comment='角色表';
-insert into t_role(role_id, role_name) values (1, '管理员', '');
-insert into t_role(role_id, role_name) values (2, '董事', '');
-insert into t_role(role_id, role_name) values (3, '董事长', '');
-insert into t_role(role_id, role_name) values (4, '总裁', '');
-insert into t_role(role_id, role_name) values (5, '总经理', '');
-insert into t_role(role_id, role_name) values (6, '部门总监', '');
-insert into t_role(role_id, role_name) values (7, '部门副总监', '');
-insert into t_role(role_id, role_name) values (8, '小组组长', '');
-insert into t_role(role_id, role_name) values (9, '普通员工', '');
-insert into t_role(role_id, role_name) values (10, '游客', '');
+insert into t_role(role_id, role_name, `describe`) values (1, '管理员', '');
+insert into t_role(role_id, role_name, `describe`) values (2, '董事', '');
+insert into t_role(role_id, role_name, `describe`) values (3, '董事长', '');
+insert into t_role(role_id, role_name, `describe`) values (4, '总裁', '');
+insert into t_role(role_id, role_name, `describe`) values (5, '总经理', '');
+insert into t_role(role_id, role_name, `describe`) values (6, '部门总监', '');
+insert into t_role(role_id, role_name, `describe`) values (7, '部门副总监', '');
+insert into t_role(role_id, role_name, `describe`) values (8, '小组组长', '');
+insert into t_role(role_id, role_name, `describe`) values (9, '普通员工', '');
+insert into t_role(role_id, role_name, `describe`) values (10, '游客', '');
 
 drop table if exists `t_user_role`;
 create table if not exists `t_user_role`(
