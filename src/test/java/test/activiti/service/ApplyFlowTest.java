@@ -66,7 +66,7 @@ public class ApplyFlowTest extends AbstractTestBase{
 	
 	@Test
 	public void complateUserrask1(){
-		List<Task> tasks = taskService.createTaskQuery().taskAssignee("user").taskId("42507").list();
+		List<Task> tasks = taskService.createTaskQuery().taskAssignee("user").taskId("32507").list();
 		for (Task task : tasks) {
 			String taskId = task.getId();
 			String assignee = task.getAssignee();
@@ -75,6 +75,7 @@ public class ApplyFlowTest extends AbstractTestBase{
 			
 			Map<String, Object> value = new HashMap<>();
 			value.put("name", "xiams");
+			value.put("emp", "xiams_emp");
 			List<String> strList = new ArrayList<>();
 			strList.add("1");
 			strList.add("2");
