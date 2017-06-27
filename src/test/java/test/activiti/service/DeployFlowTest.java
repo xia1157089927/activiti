@@ -29,7 +29,8 @@ public class DeployFlowTest extends AbstractTestBase{
 	
 	@Test
 	public void delpoyFlow(){
-		repositoryService.createDeployment().addClasspathResource("processes/vacationRequest.bpmn").deploy();
+		//repositoryService.createDeployment().addClasspathResource("processes/vacationRequest.bpmn").deploy();
+		repositoryService.createDeployment().addClasspathResource("processes/apply.bpmn").deploy();
 		log.info("Number of process definitions: " + repositoryService.createProcessDefinitionQuery().count());
 	}
 	
@@ -41,7 +42,7 @@ public class DeployFlowTest extends AbstractTestBase{
 		variables.put("numberOfDays", new Integer(4));
 		variables.put("vacationMotivation", "I'm really tired!");
 
-		ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("vacationRequest", variables);
+		ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("apply", variables);
 		// Verify that we started a new process instance
 		log.info(processInstance.getActivityId() + "<<<Number of process instances: " + runtimeService.createProcessInstanceQuery().count());
 	}
