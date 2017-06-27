@@ -1,5 +1,6 @@
 package test.activiti.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,10 +50,10 @@ public class ApplyFlowTest extends AbstractTestBase{
 	}
 	
 	/**
-	 * 执行流程第一步
+	 * 查询Apply第一步未完成
 	 */
 	@Test
-	public void startUsertask1(){
+	public void findUsertask1(){
 		List<Task> tasks = taskService.createTaskQuery().taskAssignee("user").list();
 		log.info("tasks.size:==>{}", tasks.size());
 		for (Task task : tasks) {
@@ -60,6 +61,27 @@ public class ApplyFlowTest extends AbstractTestBase{
 			String assignee = task.getAssignee();
 			String taskName = task.getName();
 			log.info("taskId: {}, assignee: {}, taskName:{} ", taskId, assignee, taskName);
+		}
+	}
+	
+	@Test
+	public void complateUserrask1(){
+		List<Task> tasks = taskService.createTaskQuery().taskAssignee("user").taskId("42507").list();
+		for (Task task : tasks) {
+			String taskId = task.getId();
+			String assignee = task.getAssignee();
+			String taskName = task.getName();
+			log.info("taskId: {}, assignee: {}, taskName:{} ", taskId, assignee, taskName);
+			
+			Map<String, Object> value = new HashMap<>();
+			value.put("name", "xiams");
+			List<String> strList = new ArrayList<>();
+			strList.add("1");
+			strList.add("2");
+			strList.add("2");
+			strList.add("4");
+			value.put("strList", strList);
+			taskService.complete(taskId, value);
 		}
 	}
 	

@@ -11,11 +11,13 @@
     
     <userTask id="usertask1" name="提交申请" activiti:assignee="user">
     	<extensionElements>
-	    	<activiti:executionListener class="com.activiti.service.activiti.handler.MyJavaDelegate" event="start" />
+	    	<activiti:executionListener class="com.activiti.service.activiti.handler.MyAssignmentHandler" event="create" />
 	  	</extensionElements>
     </userTask>
-    <userTask id="usertask2" name="主管审批" activiti:assignee="${ldapService.findManagerForEmployee(emp)}">
-    	
+    <userTask id="usertask2" name="主管审批" activiti:assignee="${applyService.findManagerForEmployee(emp)}">
+    	<extensionElements>
+	    	<activiti:executionListener class="com.activiti.service.activiti.handler.MyAssignmentHandler" event="create" />
+	  	</extensionElements>
     </userTask>
     <userTask id="usertask3" name="经理审批" activiti:assignee="admin"></userTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
