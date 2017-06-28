@@ -14,5 +14,7 @@
        </extensionElements> 
  * </userTask> 
  * 
+ * 排他网关（ExclusiveGateWay）
+ *
  **/
 
